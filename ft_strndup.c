@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 02:03:24 by svogrig           #+#    #+#             */
-/*   Updated: 2023/11/09 00:45:20 by svogrig          ###   ########.fr       */
+/*   Updated: 2023/11/09 10:31:41 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strndup(const char *src, int size)
 
 	if (src == NULL)
 		return (NULL);
-	str = calloc(size + 1, sizeof(char));
+	str = ft_calloc(size + 1, sizeof(char));
 	if (!str)
 		return (NULL);
 	i = 0;

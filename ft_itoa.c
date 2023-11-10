@@ -6,11 +6,29 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 00:01:11 by svogrig           #+#    #+#             */
-/*   Updated: 2023/11/08 23:07:39 by svogrig          ###   ########.fr       */
+/*   Updated: 2023/11/09 10:36:54 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static char	*my_strndup(const char *src, int size)
+{
+	char	*str;
+	int		i;
+
+	str = ft_calloc(size + 1, sizeof(char));
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (i < size)
+	{
+		str[i] = src[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
 
 char	*ft_itoa(int n)
 {
@@ -38,5 +56,5 @@ char	*ft_itoa(int n)
 		i--;
 		num[i] = num[0];
 	}
-	return (ft_strndup(&num[i], 11 - i));
+	return (my_strndup(&num[i], 11 - i));
 }
