@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 00:00:04 by svogrig           #+#    #+#             */
-/*   Updated: 2023/11/08 22:44:00 by svogrig          ###   ########.fr       */
+/*   Updated: 2023/11/11 23:14:35 by stephane         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #include "libft.h"
 
@@ -47,36 +47,33 @@ static char	*my_strndup(const char *src, int size)
 	return (str);
 }
 
-static void	fill_split(char **split, char const *s, char c)
+static int	fill_split(char **split, char const *s, char c)
 {
-	int		flag;
 	char	*start;
 	int		i;
-
-	flag = 1;
+	
 	i = 0;
 	while (*s)
 	{
-		if (*s == c)
-			flag = 1;
-		else if (flag == 1)
+		while (*s == c)
+			s++;
+		if (*s)
 		{
-			flag = 0;
 			start = (char *)s;
 			while (*s && *s != c)
 				s++;
 			split[i] = my_strndup(start, s - start);
-			if (split[i++] == NULL)
-				free_split(split);
-			s--;
+			if (split[i] == NULL)
+				return (0);
+			i++;
 		}
-		s++;
 	}
+	return (1);
 }
 
-unsigned int	count_words(char const *str, char c)
+size_t	count_words(char const *str, char c)
 {
-	unsigned int	nbr_words;
+	size_t	nbr_words;
 
 	nbr_words = 0;
 	while (*str)
@@ -94,7 +91,7 @@ unsigned int	count_words(char const *str, char c)
 char	**ft_split(char const *s, char c)
 {
 	char	**split;
-	int		nbr_words;
+	size_t	nbr_words;
 
 	if (s == NULL)
 		return (NULL);
@@ -102,7 +99,11 @@ char	**ft_split(char const *s, char c)
 	split = ft_calloc(nbr_words + 1, sizeof(char *));
 	if (split == NULL)
 		return (NULL);
-	fill_split(split, s, c);
+	if (fill_split(split, s, c) == 0)
+	{
+		free_split(split);
+		return (NULL);
+	}
 	split[nbr_words] = NULL;
 	return (split);
 }

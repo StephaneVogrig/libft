@@ -1,14 +1,14 @@
-/* ************************************************************************** */
+/******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
+/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 19:04:55 by svogrig           #+#    #+#             */
-/*   Updated: 2023/11/08 04:59:43 by svogrig          ###   ########.fr       */
+/*   Updated: 2023/11/12 21:36:19 by stephane         ###   ########.fr       */
 /*                                                                            */
-/* ************************************************************************** */
+/******************************************************************************/
 
 #ifndef LIBFT_H
 # define LIBFT_H
@@ -59,9 +59,6 @@ void	ft_putnbr_fd(int n, int fd);
 
 // bonus ------------------------
 
-// supplements ------------------
-char	*ft_strndup(const char *src, int size);
-
 typedef struct s_list
 {
 	void			*content;
@@ -78,4 +75,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
+// supplements ------------------
+char	*ft_strndup(const char *src, int size);
 #endif
