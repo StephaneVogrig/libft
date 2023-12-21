@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:41:41 by svogrig           #+#    #+#             */
-/*   Updated: 2023/11/08 13:25:30 by svogrig          ###   ########.fr       */
+/*   Updated: 2023/11/14 13:37:53 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ size_t	ft_strlen(const char *s)
 {
 	int	i;
 
-	if (s == NULL)
-		return (0);
 	i = 0;
 	while (s[i])
 		i++;

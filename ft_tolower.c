@@ -6,15 +6,13 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 20:18:05 by svogrig           #+#    #+#             */
-/*   Updated: 2023/11/03 15:27:26 by svogrig          ###   ########.fr       */
+/*   Updated: 2023/11/14 19:09:40 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
-	if (c >= 'A' && c <= 'Z')
+	if ('A' <= c && c <= 'Z')
 		return (c + 32);
-	if (c < -1)
-		return (256 + c);
 	return (c);
 }

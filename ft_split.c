@@ -1,14 +1,14 @@
-/******************************************************************************/
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: stephane <stephane@student.42.fr>          +#+  +:+       +#+        */
+/*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 00:00:04 by svogrig           #+#    #+#             */
-/*   Updated: 2023/11/11 23:14:35 by stephane         ###   ########.fr       */
+/*   Updated: 2023/11/14 18:51:03 by svogrig          ###   ########.fr       */
 /*                                                                            */
-/******************************************************************************/
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -51,7 +51,7 @@ static int	fill_split(char **split, char const *s, char c)
 {
 	char	*start;
 	int		i;
-	
+
 	i = 0;
 	while (*s)
 	{
@@ -71,7 +71,7 @@ static int	fill_split(char **split, char const *s, char c)
 	return (1);
 }
 
-size_t	count_words(char const *str, char c)
+static size_t	count_words(char const *str, char c)
 {
 	size_t	nbr_words;
 

@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 00:01:11 by svogrig           #+#    #+#             */
-/*   Updated: 2023/11/09 10:36:54 by svogrig          ###   ########.fr       */
+/*   Updated: 2023/11/14 17:17:26 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_itoa(int n)
 	int		i;
 
 	if (n == INT_MIN)
-		return (ft_strdup("-2147483648"));
+		return (my_strndup("-2147483648", 11));
 	num[0] = '+';
 	if (n < 0)
 	{

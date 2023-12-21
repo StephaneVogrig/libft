@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 00:08:49 by svogrig           #+#    #+#             */
-/*   Updated: 2023/11/01 00:13:56 by svogrig          ###   ########.fr       */
+/*   Updated: 2023/11/14 13:54:35 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write (fd, s, ft_strlen(s));
+	if (s)
+		write (fd, s, ft_strlen(s));
 }

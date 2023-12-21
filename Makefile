@@ -1,14 +1,14 @@
-#******************************************************************************#
+# **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: stephane <stephane@student.42.fr>          +#+  +:+       +#+         #
+#    By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/02 02:59:52 by svogrig           #+#    #+#              #
-#    Updated: 2023/11/12 23:41:45 by stephane         ###   ########.fr        #
+#    Updated: 2023/11/14 14:09:40 by svogrig          ###   ########.fr        #
 #                                                                              #
-#******************************************************************************#
+# **************************************************************************** #
 
 NAME = libft.a
 
@@ -50,13 +50,17 @@ SRCS 		:=	ft_isalpha.c\
 				ft_putchar_fd.c \
 				ft_putstr_fd.c \
 				ft_putendl_fd.c \
-				ft_putnbr_fd.c \
-				ft_strndup.c \
-				ft_lstnew.c \
-				ft_lstaddfront.c
+				ft_putnbr_fd.c
 
 SRCBONUS	:=	ft_lstnew.c \
-				ft_lstaddfront.c
+				ft_lstadd_front.c \
+				ft_lstsize.c \
+				ft_lstlast.c \
+				ft_lstadd_back.c \
+				ft_lstdelone.c \
+				ft_lstclear.c \
+				ft_lstiter.c \
+				ft_lstmap.c
 
 SRCS		:=	$(SRCS:%=$(SRC_DIR)/%)
 SRCBONUS	:=	$(SRCBONUS:%=$(SRC_DIR)/%)
@@ -90,12 +94,12 @@ $(NAME) : $(OBJS)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	$(DIR_DUP)
-	$(CC) $(CFLAGS) $(CPPFLAGS) -g -c -o $@ $<
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
 	$(info created: $@)
 
 -include $(DEPS) $(DEPBONUS)
 
-bonus: $(OBJS) $(OBJBONUS)
+bonus: $(OBJS) $(OBJBONUS) 
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(OBJBONUS)
 	$(info created: $@)
 
@@ -109,10 +113,6 @@ re:
 	$(MAKE) fclean
 	$(MAKE) all
 	$(MAKE) so
-
-so:
-	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS)
-	gcc -nostartfiles -shared -o libft.so $(OBJS)
 
 .PHONY: clean fclean re so bonus
 .SILENT:

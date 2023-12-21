@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 00:03:08 by svogrig           #+#    #+#             */
-/*   Updated: 2023/11/08 15:43:44 by svogrig          ###   ########.fr       */
+/*   Updated: 2023/11/14 11:32:38 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
-	if ((*f) == NULL)
+	if (!f || !s)
 		return ;
 	i = 0;
 	while (s[i])

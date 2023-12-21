@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 23:04:07 by svogrig           #+#    #+#             */
-/*   Updated: 2023/11/08 16:01:28 by svogrig          ###   ########.fr       */
+/*   Updated: 2023/11/14 17:27:45 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	int	i;
 
-	if (little == NULL || big == NULL)
-		return (NULL);
 	if (ft_strlen(little) == 0)
 		return ((char *)big);
-	while (*big && len)
+	while (len && *big)
 	{
 		if (*big == *little)
 		{
